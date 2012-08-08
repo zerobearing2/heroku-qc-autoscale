@@ -3,6 +3,7 @@ Autoscale QueueClassic workers on Heroku
 
 Add to a Rails 3.x project to auto scale QueueClassic workers on heroku.
 
+**WARNING: USE AT OWN RISK! THIS GEM IS CONSIDERED EXTREME ALPHA!**
 
 Usage
 -----
