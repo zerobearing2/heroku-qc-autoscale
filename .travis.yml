@@ -1,4 +1,13 @@
 language: ruby
+
+notifications:
+  email: false
+  webhooks:
+    on_success: always
+    on_failure: always
+
 rvm:
-  - 1.9.3
   - 1.9.2
+  - 1.9.3
+
+script: bundle exec rake test

@@ -25,5 +25,6 @@ Gem::Specification.new do |s|
   s.add_runtime_dependency "queue_classic",   "~> 2.0.1"
 
   s.add_development_dependency "minitest", "~> 3.3.0"
+  s.add_development_dependency 'rake'
   s.add_development_dependency "pry"
 end
