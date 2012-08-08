@@ -9,16 +9,15 @@ require "autoscale/queue_classic/callbacks"
 require "heroku-qc-autoscale/version"
 
 module Autoscale
-  mattr_accessor :api_key, :app, :mock, :scale, :active
+  mattr_accessor :api_key, :app, :mock, :scale
 
   # config and activate QC bindings
   def self.config(&block)
     yield(self)
-    activate if active == true
   end
 
   # activate QC queue callbacks
-  def self.activate
+  def self.activate!
     QC::Queue.send(:include, Autoscale::QueueClassic::QueueCallbacks)
   end
 end

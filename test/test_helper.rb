@@ -17,23 +17,6 @@ Autoscale.config do |c|
   c.app     = "racehq-test"
   c.mock    = true
   c.scale   = [1, 15, 30, 40, 50]
-  c.active  = true
 end
 
-# borrowed from heroku-api test helper
-def with_app(params={}, &block)
-  params.merge!('name' => Autoscale.app) unless params.key?("name")
-  heroku = Autoscale::Heroku.client
-  
-  begin
-    data = heroku.post_app(params).body
-    @name = data['name']
-    ready = false
-    until ready
-      ready = heroku.request(:method => :put, :path => "/apps/#{@name}/status").status == 201
-    end
-    yield(data)
-  ensure
-    heroku.delete_app(@name) rescue nil
-  end
-end
+Autoscale.activate!

@@ -8,7 +8,7 @@ module Autoscale
       end
 
       def workers=(qty)
-        client.put_workers(app, qty) 
+        client.post_ps_scale(app, "worker", qty)
       end
 
       def job_count

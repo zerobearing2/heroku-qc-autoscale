@@ -15,8 +15,4 @@ describe Autoscale do
     subject.scale.must_equal [1, 15, 30, 40, 50]
   end
 
-  it "should have active" do
-    subject.active.must_equal true
-  end
-
 end

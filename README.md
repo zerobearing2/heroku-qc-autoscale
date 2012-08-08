@@ -26,8 +26,9 @@ Create config/initializers/qc_autoscale.rb
       c.api_key = ENV['HEROKU_API_KEY']
       c.app     = ENV['HEROKU_APP']
       c.scale   = [1, 15, 30, 40, 50]
-      c.active  = Rails.env.production?
     end
+
+    Autoscale.activate! if Rails.env.production?
 
 Queue jobs as normal with QueueClassic. Based on your scale table, it will recalculate the 
 workers required after each QC#enqueue, and QC#delete.
