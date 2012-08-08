@@ -5,6 +5,9 @@ Add to a Rails 3.x project to auto scale QueueClassic workers on heroku.
 
 **WARNING: USE AT OWN RISK! THIS GEM IS CONSIDERED EXTREME ALPHA!**
 
+[![Build Status](https://secure.travis-ci.org/zerobearing2/heroku-qc-autoscale.png)](http://travis-ci.org/zerobearing2/heroku-qc-autoscale)
+
+
 Usage
 -----
 
