@@ -8,16 +8,20 @@ require "heroku-qc-autoscale/version"
 
 require "qc/callbacks"
 require "qc/auto_scale"
-require "qc/queue"
 require "heroku/scaler"
 
 module Heroku
   module QC
     module Autoscale
-      mattr_accessor :api_key, :app, :mock
+      mattr_accessor :api_key, :app, :mock, :scale, :active
 
       def self.config(&block)
         yield(self)
+        activate if active == true
+      end
+
+      def self.activate
+        ::QC::Queue.send(:include, ::QC::QueueCallbacks)
       end
 
       def self.heroku_params
@@ -26,7 +30,6 @@ module Heroku
           mock:    self.mock     || false
         }
       end
-      
     end
   end
 end

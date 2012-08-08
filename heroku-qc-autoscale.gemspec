@@ -8,8 +8,8 @@ Gem::Specification.new do |s|
   s.authors     = ["David Bradford"]
   s.email       = ["david@zerobearing.com"]
   s.homepage    = ""
-  s.summary     = %q{Auto scale your QueueClassic workers on Heroku. Inspired by mirthlab Resque auto scale gem.}
-  s.description = %q{TODO: Write a gem description}
+  s.summary     = %q{Auto scale your QueueClassic workers on Heroku. Inspired by mirthlab's Resque auto scale gem.}
+  s.description = %q{Add to a Rails 3.x project to auto scale QueueClassic workers on heroku.}
 
   s.rubyforge_project = "heroku-qc-autoscale"
 

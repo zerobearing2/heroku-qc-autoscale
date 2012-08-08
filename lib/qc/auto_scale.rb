@@ -2,11 +2,11 @@ module QC
   class AutoScale
 
     def after_enqueue(caller)
-      puts "autoscaling workers after enqueue!"
+      Heroku::Scaler.up
     end
 
     def after_delete(caller)
-      puts "autoscaling workers after delete from queue!"
+      Heroku::Scaler.down
     end
 
   end
