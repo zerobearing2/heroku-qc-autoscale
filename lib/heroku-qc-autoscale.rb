@@ -4,32 +4,21 @@ require 'active_support/core_ext/module'
 require 'queue_classic'
 require 'heroku-api'
 
+require "autoscale/heroku"
+require "autoscale/queue_classic/callbacks"
 require "heroku-qc-autoscale/version"
 
-require "qc/callbacks"
-require "qc/auto_scale"
-require "heroku/scaler"
+module Autoscale
+  mattr_accessor :api_key, :app, :mock, :scale, :active
 
-module Heroku
-  module QC
-    module Autoscale
-      mattr_accessor :api_key, :app, :mock, :scale, :active
+  # config and activate QC bindings
+  def self.config(&block)
+    yield(self)
+    activate if active == true
+  end
 
-      def self.config(&block)
-        yield(self)
-        activate if active == true
-      end
-
-      def self.activate
-        ::QC::Queue.send(:include, ::QC::QueueCallbacks)
-      end
-
-      def self.heroku_params
-        {
-          api_key: self.api_key  || ENV['HEROKU_API_KEY'],
-          mock:    self.mock     || false
-        }
-      end
-    end
+  # activate QC queue callbacks
+  def self.activate
+    QC::Queue.send(:include, Autoscale::QueueClassic::QueueCallbacks)
   end
 end

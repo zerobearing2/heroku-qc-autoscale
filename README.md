@@ -22,7 +22,7 @@ Add to Gemfile
 
 Create config/initializers/qc_autoscale.rb
 
-    Heroku::QC::Autoscale.config do |c|
+    Autoscale.config do |c|
       c.api_key = ENV['HEROKU_API_KEY']
       c.app     = ENV['HEROKU_APP']
       c.scale   = [1, 15, 30, 40, 50]

@@ -1,23 +1,22 @@
 require_relative "./test_helper"
 
-describe Heroku::QC::Autoscale do
-  
-  before do
-    Heroku::QC::Autoscale.config do |c|
-      c.api_key = "123456"
-    end
-  end
-  
-  subject { Heroku::QC::Autoscale }
+describe Autoscale do
+  subject { Autoscale }
 
   it "should have api_key" do
     subject.api_key.must_equal("123456")
   end
 
-  it "should change api_key at runtime" do
-    subject.api_key.must_equal("123456")
-    subject.api_key = "654321"    
-    subject.api_key.must_equal("654321")
+  it "should have app name" do
+    subject.app.must_match /racehq-test/
+  end
+
+  it "should have scale" do
+    subject.scale.must_equal [1, 15, 30, 40, 50]
+  end
+
+  it "should have active" do
+    subject.active.must_equal true
   end
 
 end

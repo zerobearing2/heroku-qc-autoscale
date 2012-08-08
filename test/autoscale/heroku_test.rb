@@ -1,11 +1,9 @@
 require_relative "../test_helper"
 
-describe Heroku::Scaler do
+describe Autoscale::Heroku do
   include QCHelper
 
-  QC.define_singleton_method :log do |*args| nil; end # silence QC logger
-
-  subject { Heroku::Scaler }
+  subject { Autoscale::Heroku }
 
   it "job_count should be 0" do
     subject.job_count.must_equal(0)

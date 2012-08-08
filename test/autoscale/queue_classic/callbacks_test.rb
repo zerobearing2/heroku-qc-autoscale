@@ -1,4 +1,4 @@
-require_relative "../test_helper"
+require_relative "../../test_helper"
 
 describe QC::Queue do
   subject { QC::Queue.new("default-test") }

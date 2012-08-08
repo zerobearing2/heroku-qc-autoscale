@@ -12,7 +12,7 @@ require 'time'
 require 'heroku-qc-autoscale'
 Dir[File.dirname(__FILE__) + "/support/**/*.rb"].each {|f| require f}
 
-Heroku::QC::Autoscale.config do |c|
+Autoscale.config do |c|
   c.api_key = "123456"
   c.app     = "racehq-test"
   c.mock    = true
@@ -22,8 +22,8 @@ end
 
 # borrowed from heroku-api test helper
 def with_app(params={}, &block)
-  params.merge!('name' => Heroku::QC::Autoscale.app) unless params.key?("name")
-  heroku = Heroku::Scaler.client
+  params.merge!('name' => Autoscale.app) unless params.key?("name")
+  heroku = Autoscale::Heroku.client
   
   begin
     data = heroku.post_app(params).body
