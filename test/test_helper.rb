@@ -16,6 +16,8 @@ Heroku::QC::Autoscale.config do |c|
   c.api_key = "123456"
   c.app     = "racehq-test"
   c.mock    = true
+  c.scale   = [1, 15, 30, 40, 50]
+  c.active  = true
 end
 
 # borrowed from heroku-api test helper
