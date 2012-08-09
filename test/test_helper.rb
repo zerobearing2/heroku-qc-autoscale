@@ -17,6 +17,7 @@ Autoscale.config do |c|
   c.app     = "racehq-test"
   c.mock    = true
   c.scale   = [1, 15, 30, 40, 50]
+  c.min     = 0
 end
 
 Autoscale.activate!

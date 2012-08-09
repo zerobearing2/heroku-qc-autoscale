@@ -26,8 +26,8 @@ module Autoscale
       # shutdown if no jobs exist
       def down
         if job_count < 1
-          QC.log(action: :scale, workers: 0)
-          self.workers = 0
+          QC.log(action: :scale, workers: min_workers)
+          self.workers = min_workers
         end
       end
 
@@ -50,6 +50,10 @@ module Autoscale
       # the scale
       def scale
         Autoscale.scale || [1, 15, 30, 40, 50]
+      end
+
+      def min_workers
+        Autoscale.min || 0
       end
 
       # heroku api client

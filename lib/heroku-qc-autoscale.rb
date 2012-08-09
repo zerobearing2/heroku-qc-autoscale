@@ -9,7 +9,7 @@ require "autoscale/queue_classic/callbacks"
 require "heroku-qc-autoscale/version"
 
 module Autoscale
-  mattr_accessor :api_key, :app, :mock, :scale
+  mattr_accessor :api_key, :app, :mock, :scale, :min
 
   # config and activate QC bindings
   def self.config(&block)

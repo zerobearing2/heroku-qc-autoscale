@@ -24,7 +24,8 @@ Create config/initializers/qc_autoscale.rb
 
     Autoscale.config do |c|
       c.api_key = ENV['HEROKU_API_KEY']
-      c.app     = ENV['HEROKU_APP']
+      c.app     = ENV['AUTOSCALE_APP']
+      c.min     = ENV['AUTOSCALE_MIN']
       c.scale   = [1, 15, 30, 40, 50]
     end
 

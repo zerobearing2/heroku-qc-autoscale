@@ -15,4 +15,8 @@ describe Autoscale do
     subject.scale.must_equal [1, 15, 30, 40, 50]
   end
 
+  it "should have min workers" do
+    subject.min.must_equal 0
+  end
+
 end
