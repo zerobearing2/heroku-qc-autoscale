@@ -11,6 +11,11 @@ module Autoscale
         client.post_ps_scale(app, "worker", qty)
       end
 
+      # shutdown all workers
+      def shutdown
+        self.workers = 0
+      end
+
       def job_count
         QC::Queries.count.to_i
       end
@@ -32,7 +37,7 @@ module Autoscale
       end
 
       def calculate_required_workers
-        scale.rindex{|x| x <= job_count} + 1
+        (scale.rindex{|x| x <= job_count}.to_i + 1)
       end
 
       def params

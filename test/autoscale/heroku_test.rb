@@ -26,12 +26,29 @@ describe Autoscale::Heroku do
     subject.job_count.must_equal(0)
   end
 
+  it "calculate required workers should be min of 1 with no jobs" do
+    # mock for no jobs
+    h = Autoscale::Heroku.dup
+    h.define_singleton_method(:job_count) { 0 }
+    
+    h.job_count.must_equal(0)
+    h.calculate_required_workers.must_equal(1)
+  end
+
   it "#workers" do
     subject.workers = 1
     subject.workers.must_equal(1)
 
     subject.workers = 2
     subject.workers.must_equal(2)
+  end
+
+  it "should shutdown workers" do
+    subject.workers = 2
+    subject.workers.must_equal(2)
+
+    subject.shutdown
+    subject.workers.must_equal(0)
   end
 
   describe "scaling up" do
