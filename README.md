@@ -6,7 +6,7 @@ Add to a Rails 3.x project to auto scale QueueClassic workers on heroku.
 **WARNING: USE AT OWN RISK! THIS GEM IS CONSIDERED EXTREME ALPHA!**
 
 [![Build Status](https://secure.travis-ci.org/zerobearing2/heroku-qc-autoscale.png)](http://travis-ci.org/zerobearing2/heroku-qc-autoscale)
-
+<!---[![Dependency Status](https://gemnasium.com/zerobearing2/heroku-qc-autoscale.png)](https://gemnasium.com/zerobearing2/heroku-qc-autoscale)--->
 
 Usage
 -----
@@ -35,6 +35,16 @@ Queue jobs as normal with QueueClassic. Based on your scale table, it will recal
 workers required after each QC#enqueue, and QC#delete.
 
     QC.enqueue("Time.now")
+
+
+TODO
+----
+
+ - remove Rails dependencies
+ - remove ActiveSupport dependencies
+ - when queue is emptied, scale workers to "min" after X time elapses.
+ - rake task to scale workers to "min" manually
+ - enable/disable scaling at runtime
 
 
 Meta
