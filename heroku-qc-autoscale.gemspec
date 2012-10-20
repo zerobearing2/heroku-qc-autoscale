@@ -7,7 +7,7 @@ Gem::Specification.new do |s|
   s.version     = Heroku::QC::Autoscale::VERSION
   s.authors     = ["David Bradford"]
   s.email       = ["david@zerobearing.com"]
-  s.homepage    = ""
+  s.homepage    = "https://github.com/zerobearing2/heroku-qc-autoscale"
   s.summary     = %q{Auto scale your QueueClassic workers on Heroku. Inspired by mirthlab's Resque auto scale gem.}
   s.description = %q{Add to a Rails 3.x project to auto scale QueueClassic workers on heroku.}
 

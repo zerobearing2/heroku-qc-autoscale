@@ -6,13 +6,13 @@ Add to a Rails 3.x project to auto scale QueueClassic workers on heroku.
 **WARNING: USE AT OWN RISK! THIS GEM IS CONSIDERED EXTREME ALPHA!**
 
 [![Build Status](https://secure.travis-ci.org/zerobearing2/heroku-qc-autoscale.png)](http://travis-ci.org/zerobearing2/heroku-qc-autoscale)
-<!---[![Dependency Status](https://gemnasium.com/zerobearing2/heroku-qc-autoscale.png)](https://gemnasium.com/zerobearing2/heroku-qc-autoscale)--->
+[![Code Climate](https://codeclimate.com/badge.png)](https://codeclimate.com/github/zerobearing2/heroku-qc-autoscale)
 
 Usage
 -----
 
 Install as gem
-    
+
     gem install heroku-qc-autoscale
 
 Add to Gemfile
@@ -31,7 +31,7 @@ Create config/initializers/qc_autoscale.rb
 
     Autoscale.activate! if Rails.env.production?
 
-Queue jobs as normal with QueueClassic. Based on your scale table, it will recalculate the 
+Queue jobs as normal with QueueClassic. Based on your scale table, it will recalculate the
 workers required after each QC#enqueue, and QC#delete.
 
     QC.enqueue("Time.now")
