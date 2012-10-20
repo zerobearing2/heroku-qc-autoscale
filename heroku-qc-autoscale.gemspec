@@ -20,9 +20,9 @@ Gem::Specification.new do |s|
 
   # specify any dependencies here; for example:
   s.add_runtime_dependency "heroku-api",      "~> 0.3.2"
-  s.add_runtime_dependency "activesupport",   "~> 3.1.7"
+  s.add_runtime_dependency "activesupport",   "~> 3.2"
   s.add_runtime_dependency "i18n",            "~> 0.6.0"
-  s.add_runtime_dependency "queue_classic",   "~> 2.0.1"
+  s.add_runtime_dependency "queue_classic",   "~> 2.0"
 
   s.add_development_dependency "minitest", "~> 3.3.0"
   s.add_development_dependency 'rake'
