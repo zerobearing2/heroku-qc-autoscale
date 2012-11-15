@@ -1,6 +1,6 @@
 module Autoscale
   class Heroku
-    
+
     class << self
 
       def workers
@@ -42,11 +42,14 @@ module Autoscale
 
       def params
         {
-          api_key: Autoscale.api_key  || ENV['HEROKU_API_KEY'],
-          mock:    Autoscale.mock     || false
+          api_key:          Autoscale.api_key           || ENV['HEROKU_API_KEY'],
+          connect_timeout:  Autoscale.connect_timeout,
+          read_timeout:     Autoscale.read_timeout,
+          write_timeout:    Autoscale.write_timeout,
+          mock:             Autoscale.mock              || false
         }
       end
-      
+
       # the app to scale
       def app
         Autoscale.app
@@ -68,5 +71,5 @@ module Autoscale
     end
 
   end
-  
+
 end

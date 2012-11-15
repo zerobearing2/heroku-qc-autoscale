@@ -19,4 +19,23 @@ describe Autoscale do
     subject.min.must_equal 0
   end
 
+  describe "configure" do
+    subject { Autoscale }
+
+    it "should set connect timeout to 15s" do
+      Autoscale.connect_timeout = 15
+      subject.connect_timeout.must_equal(15)
+    end
+
+    it "should set read timeout to 60s" do
+      Autoscale.read_timeout = 60
+      subject.read_timeout.must_equal(60)
+    end
+
+    it "should set write timeout to 60s" do
+      Autoscale.write_timeout = 60
+      subject.write_timeout.must_equal(60)
+    end
+  end
+
 end
